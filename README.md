@@ -1,6 +1,6 @@
 # Python Teleflow SDK
 
-[![PyPI](https://img.shields.io/pypi/v/teleflow?color=blue)](https://pypi.org/project/teleflow/)
+[![PyPI](https://img.shields.io/pypi/v/teleflow.khulnasoft.comlor=blue)](https://pypi.org/project/teleflow/)
 ![Tests Status](https://github.com/khulnasoft/teleflow-python/actions/workflows/.github/workflows/tests.yml/badge.svg)
 [![codecov](https://codecov.io/gh/khulnasoft/teleflow-python/branch/main/graph/badge.svg?token=RON7F8QTZX)](https://codecov.io/gh/khulnasoft/teleflow-python)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
@@ -12,7 +12,7 @@
 
 ---
 
-The [Python Teleflow](https://teleflow.co) SDK and package provides a fluent and expressive interface for interacting with [Teleflow's API](https://api.teleflow.co/api) and managing notifications.
+The [Python Teleflow](https://teleflow.khulnasoft.com) SDK and package provides a fluent and expressive interface for interacting with [Teleflow's API](https://api-teleflow.khulnasoft.com/api) and managing notifications.
 
 ## Install
 
@@ -45,14 +45,14 @@ This package is a wrapper of all the resources offered by Teleflow, we will just
 
 To do this, you will need to:
 
-1. Create your first notification workflow and keep in mind the identifier to trigger the workflow: https://docs.teleflow.co/overview/quickstart/general-quickstart#create-a-workflow
-2. Retrieve your API key from the Teleflow dashboard directly in the settings section: https://web.teleflow.co/settings
+1. Create your first notification workflow and keep in mind the identifier to trigger the workflow: https://docs-teleflow.khulnasoft.com/overview/quickstart/general-quickstart#create-a-workflow
+2. Retrieve your API key from the Teleflow dashboard directly in the settings section: https://web.teleflow.khulnasoft.com/settings
 3. Write code to trigger your first event:
 
 ```python
 from teleflow.api import EventApi
 
-event_api = EventApi("https://api.teleflow.co", "<TELEFLOW_API_KEY>")
+event_api = EventApi("https://api-teleflow.khulnasoft.com", "<TELEFLOW_API_KEY>")
 event_api.trigger(
     name="<YOUR_WORKFLOW_ID>",  # The workflow ID is the slug of the workflow name. It can be found on the workflow page.
     recipients="<YOUR_SUBSCRIBER_ID>",
@@ -71,10 +71,10 @@ Firstly, make imports and declare the needed variables this way:
 ```python
 from teleflow.api import EventApi
 
-url = "https://api.teleflow.co"
+url = "https://api-teleflow.khulnasoft.com"
 api_key = "<TELEFLOW_API_KEY>"
 
-# You can sign up on https://web.teleflow.co to get your API key from https://web.teleflow.co/settings
+# You can sign up on https://web.teleflow.khulnasoft.com to get your API key from https://web.teleflow.khulnasoft.com/settings
 ```
 
 **Trigger an event** - Send notification to subscribers:
@@ -95,7 +95,7 @@ teleflow = EventApi(url, api_key).trigger(
 from teleflow.dto.event import InputEventDto
 from teleflow.api import EventApi
 
-url = "https://api.teleflow.co"
+url = "https://api-teleflow.khulnasoft.com"
 api_key = "<TELEFLOW_API_KEY>"
 
 event_1 = InputEventDto(
@@ -109,7 +109,7 @@ event_2 = InputEventDto(
     payload={},
 )
 
-teleflow = EventApi("https://api.teleflow.co", api_key).trigger_bulk(events=[event1, event2])
+teleflow = EventApi("https://api-teleflow.khulnasoft.com", api_key).trigger_bulk(events=[event1, event2])
 ```
 
 **Include actor field:**
@@ -144,7 +144,7 @@ teleflow = EventApi(url, api_key).broadcast(
 from teleflow.dto.subscriber import SubscriberDto
 from teleflow.api.subscriber import SubscriberApi
 
-url = "https://api.teleflow.co"
+url = "https://api-teleflow.khulnasoft.com"
 api_key = "<TELEFLOW_API_KEY>"
 
 # Define a subscriber instance
@@ -297,8 +297,8 @@ Feature requests, bug reports and pull requests are welcome. Please create an [i
 
 ## Support and Feedback
 
-Be sure to visit the Teleflow official [documentation website](https://docs.teleflow.co/docs) for additional information about our SDK.
-If you need additional assistance, join our Discord server [here](https://discord.teleflow.co).
+Be sure to visit the Teleflow official [documentation website](https://docs-teleflow.khulnasoft.com/docs) for additional information about our SDK.
+If you need additional assistance, join our Discord server [here](https://discord.teleflow.khulnasoft.com).
 
 ## License
 

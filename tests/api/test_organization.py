@@ -4,7 +4,6 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import OrganizationApi
-from teleflow.config import TeleflowConfig
 from teleflow.dto import (
     MemberDto,
     MemberInviteDto,
@@ -14,6 +13,7 @@ from teleflow.dto import (
     PartnerConfigurationDto,
 )
 from teleflow.enums import PartnerTypeEnum
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -97,7 +97,7 @@ class OrganizationApiTests(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = OrganizationApi()
 
     @mock.patch("requests.request")
@@ -110,7 +110,7 @@ class OrganizationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/organizations",
+            url="sample.teleflow.khulnasoft.comm/v1/organizations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -128,7 +128,7 @@ class OrganizationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/organizations",
+            url="sample.teleflow.khulnasoft.comm/v1/organizations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "TEST", "logo": "unknown payload"},
             params=None,
@@ -145,7 +145,7 @@ class OrganizationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/organizations",
+            url="sample.teleflow.khulnasoft.comm/v1/organizations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "TEST"},
             params=None,
@@ -162,7 +162,7 @@ class OrganizationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/organizations/me",
+            url="sample.teleflow.khulnasoft.comm/v1/organizations/me",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -178,7 +178,7 @@ class OrganizationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PATCH",
-            url="sample.teleflow.com/v1/organizations",
+            url="sample.teleflow.khulnasoft.comm/v1/organizations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "new-name"},
             params=None,
@@ -195,7 +195,7 @@ class OrganizationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/organizations/members",
+            url="sample.teleflow.khulnasoft.comm/v1/organizations/members",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -212,7 +212,7 @@ class OrganizationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.com/v1/organizations/members/64f0688bdd99c21f1e30a337",
+            url="sample.teleflow.khulnasoft.comm/v1/organizations/members/64f0688bdd99c21f1e30a337",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -229,7 +229,7 @@ class OrganizationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PUT",
-            url="sample.teleflow.com/v1/organizations/branding",
+            url="sample.teleflow.khulnasoft.comm/v1/organizations/branding",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "logo": "https://s3-sample.com/logo.png",

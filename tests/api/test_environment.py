@@ -4,8 +4,8 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import EnvironmentApi
-from teleflow.config import TeleflowConfig
 from teleflow.dto import EnvironmentApiKeyDto, EnvironmentDto, EnvironmentWidgetDto
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -14,7 +14,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class EnvironmentApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = EnvironmentApi()
 
         cls.response_json_env = {
@@ -59,7 +59,7 @@ class EnvironmentApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/environments",
+            url="sample.teleflow.khulnasoft.comm/v1/environments",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -76,7 +76,7 @@ class EnvironmentApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/environments",
+            url="sample.teleflow.khulnasoft.comm/v1/environments",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test"},
             params=None,
@@ -93,7 +93,7 @@ class EnvironmentApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/environments",
+            url="sample.teleflow.khulnasoft.comm/v1/environments",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test", "parentId": "parent_id"},
             params=None,
@@ -110,7 +110,7 @@ class EnvironmentApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/environments/me",
+            url="sample.teleflow.khulnasoft.comm/v1/environments/me",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -127,7 +127,7 @@ class EnvironmentApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/environments/api-keys",
+            url="sample.teleflow.khulnasoft.comm/v1/environments/api-keys",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -144,7 +144,7 @@ class EnvironmentApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/environments/api-keys/regenerate",
+            url="sample.teleflow.khulnasoft.comm/v1/environments/api-keys/regenerate",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

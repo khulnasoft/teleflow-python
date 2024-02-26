@@ -4,7 +4,6 @@ import pkg_resources
 
 from teleflow.api.base import PaginationIterator
 from teleflow.api.notification import NotificationApi
-from teleflow.config import TeleflowConfig
 from teleflow.dto.notification import (
     ActivityGraphStatesDto,
     ActivityNotificationDto,
@@ -16,6 +15,7 @@ from teleflow.dto.notification import (
     ActivityNotificationTriggerResponseDto,
     PaginatedActivityNotificationDto,
 )
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -143,7 +143,7 @@ class NotificationApiTests(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = NotificationApi()
 
     @mock.patch("requests.request")
@@ -167,7 +167,7 @@ class NotificationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notifications",
+            url="sample.teleflow.khulnasoft.comm/v1/notifications",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={
@@ -203,7 +203,7 @@ class NotificationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notifications",
+            url="sample.teleflow.khulnasoft.comm/v1/notifications",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={
@@ -230,7 +230,7 @@ class NotificationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notifications/stats",
+            url="sample.teleflow.khulnasoft.comm/v1/notifications/stats",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -265,7 +265,7 @@ class NotificationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notifications/graph/stats",
+            url="sample.teleflow.khulnasoft.comm/v1/notifications/graph/stats",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={
@@ -291,7 +291,7 @@ class NotificationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url=f"sample.teleflow.com/v1/notifications/{notification_id}",
+            url=f"sample.teleflow.khulnasoft.comm/v1/notifications/{notification_id}",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

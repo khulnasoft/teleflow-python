@@ -72,7 +72,7 @@ class CredentialsKeyEnum(StrEnum):
 class EmailProviderIdEnum(StrEnum):
     """This enumeration define possible email provider ID.
 
-    For more details about their configuration, see https://docs.teleflow.co/channels/email/
+    For more details about their configuration, see https://docs-teleflow.khulnasoft.com/channels/email/
     """
 
     EMAILJS = "emailjs"

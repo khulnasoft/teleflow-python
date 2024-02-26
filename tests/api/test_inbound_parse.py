@@ -3,7 +3,7 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import InboundParseApi
-from teleflow.config import TeleflowConfig
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -12,7 +12,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class InboundParseApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = InboundParseApi()
 
     @mock.patch("requests.request")
@@ -23,7 +23,7 @@ class InboundParseApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/inbound-parse/mx/status",
+            url="sample.teleflow.khulnasoft.comm/v1/inbound-parse/mx/status",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

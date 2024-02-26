@@ -19,6 +19,6 @@ enums
 """
 
 from teleflow import api, dto, enums
-from teleflow.config import TeleflowConfig
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 
 __all__ = ["api", "dto", "enums", "TeleflowConfig"]

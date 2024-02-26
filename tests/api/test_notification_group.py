@@ -3,11 +3,11 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import NotificationGroupApi
-from teleflow.config import TeleflowConfig
 from teleflow.dto.notification_group import (
     NotificationGroupDto,
     PaginatedNotificationGroupDto,
 )
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -16,7 +16,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class NotificationGroupApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = NotificationGroupApi()
         cls.notification_group_json = {
             "_id": "63dafed97779f59258e38449",
@@ -49,7 +49,7 @@ class NotificationGroupApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notification-groups",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-groups",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -66,7 +66,7 @@ class NotificationGroupApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/notification-groups",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-groups",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "something"},
             params=None,
@@ -83,7 +83,7 @@ class NotificationGroupApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notification-groups/63dafed97779f59258e38449",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-groups/63dafed97779f59258e38449",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -100,7 +100,7 @@ class NotificationGroupApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PATCH",
-            url="sample.teleflow.com/v1/notification-groups/63dafed97779f59258e38449",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-groups/63dafed97779f59258e38449",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "Something"},
             params=None,
@@ -115,7 +115,7 @@ class NotificationGroupApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.com/v1/notification-groups/63dafed97779f59258e38449",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-groups/63dafed97779f59258e38449",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

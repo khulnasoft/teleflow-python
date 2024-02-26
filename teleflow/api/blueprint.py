@@ -6,8 +6,8 @@ from typing import Optional
 import requests
 
 from teleflow.api.base import Api
-from teleflow.constants import BLUEPRINTS_ENDPOINT
 from teleflow.dto.blueprint import BlueprintDto, GroupedBlueprintDto
+from teleflow.khulnasoft.comnstants import BLUEPRINTS_ENDPOINT
 
 
 class BlueprintApi(Api):

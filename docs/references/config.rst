@@ -1,5 +1,5 @@
 Config
 ======
 
-.. automodule:: teleflow.config
+.. automodule:: teleflow.khulnasoft.comnfig
     :members:

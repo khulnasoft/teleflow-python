@@ -4,7 +4,6 @@ import pkg_resources
 
 from teleflow.api import NotificationTemplateApi
 from teleflow.api.base import PaginationIterator
-from teleflow.config import TeleflowConfig
 from teleflow.dto import (
     NotificationGroupDto,
     NotificationStepDto,
@@ -16,6 +15,7 @@ from teleflow.dto import (
     StepFilterDto,
     SubscriberPreferenceChannelDto,
 )
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -24,7 +24,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class NotificationTemplateApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = NotificationTemplateApi()
         cls.notification_template_json = {
             "preferenceSettings": {"email": True, "sms": True, "in_app": True, "chat": True, "push": True},
@@ -157,7 +157,7 @@ class NotificationTemplateApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notification-templates",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-templates",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={},
@@ -174,7 +174,7 @@ class NotificationTemplateApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notification-templates",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-templates",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 1, "limit": 10},
@@ -191,7 +191,7 @@ class NotificationTemplateApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notification-templates",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-templates",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 0, "limit": 10},
@@ -245,7 +245,7 @@ class NotificationTemplateApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/notification-templates",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-templates",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "Absences",
@@ -295,7 +295,7 @@ class NotificationTemplateApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/notification-templates/63daff36c037e013fd82d9fc",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-templates/63daff36c037e013fd82d9fc",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -350,7 +350,7 @@ class NotificationTemplateApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PUT",
-            url="sample.teleflow.com/v1/notification-templates/63daff36c037e013fd82d9fc",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-templates/63daff36c037e013fd82d9fc",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "Absences",
@@ -399,7 +399,7 @@ class NotificationTemplateApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.com/v1/notification-templates/63daff36c037e013fd82d9fc",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-templates/63daff36c037e013fd82d9fc",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -416,7 +416,7 @@ class NotificationTemplateApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PUT",
-            url="sample.teleflow.com/v1/notification-templates/63daff36c037e013fd82d9fc/status",
+            url="sample.teleflow.khulnasoft.comm/v1/notification-templates/63daff36c037e013fd82d9fc/status",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"active": True},
             params=None,

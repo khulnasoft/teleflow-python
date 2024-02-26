@@ -8,11 +8,11 @@ from typing import Optional
 import requests
 
 from teleflow.api.base import Api
-from teleflow.constants import NOTIFICATION_GROUPS_ENDPOINT
 from teleflow.dto.notification_group import (
     NotificationGroupDto,
     PaginatedNotificationGroupDto,
 )
+from teleflow.khulnasoft.comnstants import NOTIFICATION_GROUPS_ENDPOINT
 
 
 class NotificationGroupApi(Api):

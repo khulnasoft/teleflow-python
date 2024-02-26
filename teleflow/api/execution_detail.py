@@ -8,8 +8,8 @@ from typing import Iterator, Optional
 import requests
 
 from teleflow.api.base import Api
-from teleflow.constants import EXECUTION_DETAILS_ENDPOINT
 from teleflow.dto import ExecutionDetailDto
+from teleflow.khulnasoft.comnstants import EXECUTION_DETAILS_ENDPOINT
 
 
 class ExecutionDetailApi(Api):

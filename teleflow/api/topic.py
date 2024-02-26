@@ -7,8 +7,8 @@ from typing import Dict, List, Optional, Tuple, Union
 import requests
 
 from teleflow.api.base import Api
-from teleflow.constants import TOPICS_ENDPOINT
 from teleflow.dto.topic import PaginatedTopicDto, TopicDto
+from teleflow.khulnasoft.comnstants import TOPICS_ENDPOINT
 
 
 class TopicApi(Api):

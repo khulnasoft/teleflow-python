@@ -9,9 +9,9 @@ from typing import Generic, List, Optional, Type, TypeVar, Union
 import pkg_resources
 import requests
 
-from teleflow.config import TeleflowConfig
 from teleflow.dto.base import CamelCaseDto
 from teleflow.helpers import SentryProxy
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 
 LOGGER = logging.getLogger(__name__)
 

@@ -7,8 +7,8 @@ from typing import Dict, Iterator, Optional
 import requests
 
 from teleflow.api.base import Api
-from teleflow.constants import ENVIRONMENTS_ENDPOINT
 from teleflow.dto import EnvironmentApiKeyDto, EnvironmentDto
+from teleflow.khulnasoft.comnstants import ENVIRONMENTS_ENDPOINT
 
 
 class EnvironmentApi(Api):

@@ -4,8 +4,8 @@ import pkg_resources
 from requests.models import HTTPError
 
 from teleflow.api import TopicApi
-from teleflow.config import TeleflowConfig
 from teleflow.dto.topic import PaginatedTopicDto, TopicDto
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -35,7 +35,7 @@ class TopicApiTests(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = TopicApi()
 
     @mock.patch("requests.request")
@@ -48,7 +48,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/topics",
+            url="sample.teleflow.khulnasoft.comm/v1/topics",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={},
@@ -65,7 +65,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/topics",
+            url="sample.teleflow.khulnasoft.comm/v1/topics",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 1, "limit": 10, "key": "my-topic"},
@@ -84,7 +84,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/topics",
+            url="sample.teleflow.khulnasoft.comm/v1/topics",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"key": "my-topic", "name": "My Topic"},
             params=None,
@@ -103,7 +103,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/topics/my-topic",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/my-topic",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -120,7 +120,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/topics/my-topic/subscribers",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/my-topic/subscribers",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"subscribers": ["63dafed4117f8c850991ec4a"]},
             params=None,
@@ -139,7 +139,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/topics/my-topic/subscribers",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/my-topic/subscribers",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"subscribers": ["63dafed4117f8c850991ec4a", "not-defined"]},
             params=None,
@@ -154,7 +154,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/topics/my-topic/subscribers/removal",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/my-topic/subscribers/removal",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"subscribers": ["not-defined"]},
             params=None,
@@ -169,7 +169,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/topics/my-topic/subscribers/removal",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/my-topic/subscribers/removal",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"subscribers": ["63dafed4117f8c850991ec4a", "not-defined"]},
             params=None,
@@ -187,7 +187,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PATCH",
-            url="sample.teleflow.com/v1/topics/my-topic",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/my-topic",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "My Topic"},
             params=None,
@@ -202,7 +202,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.com/v1/topics/my-topic",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/my-topic",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -234,7 +234,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/topics/test-topic/subscribers/johndoe",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/test-topic/subscribers/johndoe",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -249,7 +249,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/topics/test-topic/subscribers/johndoe",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/test-topic/subscribers/johndoe",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -264,7 +264,7 @@ class TopicApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/topics/test-topic/subscribers/johndoe",
+            url="sample.teleflow.khulnasoft.comm/v1/topics/test-topic/subscribers/johndoe",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

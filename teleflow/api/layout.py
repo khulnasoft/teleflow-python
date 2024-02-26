@@ -7,8 +7,8 @@ from typing import Optional
 import requests
 
 from teleflow.api.base import Api
-from teleflow.constants import LAYOUTS_ENDPOINT
 from teleflow.dto.layout import LayoutDto, PaginatedLayoutDto
+from teleflow.khulnasoft.comnstants import LAYOUTS_ENDPOINT
 
 
 class LayoutApi(Api):

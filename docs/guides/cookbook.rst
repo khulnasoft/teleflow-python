@@ -49,9 +49,9 @@ Example:
 
     session = Session()
     retries = Retry(total=5, backoff_factor=1, status_forcelist=[502, 503, 504])
-    session.mount("https://api.teleflow.co", HTTPAdapter(max_retries=retries))
+    session.mount("https://api-teleflow.khulnasoft.com", HTTPAdapter(max_retries=retries))
 
-    event_api = EventApi("https://api.teleflow.co/api/", "<TELEFLOW_API_TOKEN>", session=session)
+    event_api = EventApi("https://api-teleflow.khulnasoft.com/api/", "<TELEFLOW_API_TOKEN>", session=session)
     event_api.trigger(
         name="<YOUR_TEMPLATE_NAME>",
         recipients="<YOUR_SUBSCRIBER_ID>",

@@ -4,8 +4,8 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import FeedApi
-from teleflow.config import TeleflowConfig
 from teleflow.dto.feed import FeedDto
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -39,7 +39,7 @@ class FeedApiTests(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = FeedApi()
 
     @mock.patch("requests.request")
@@ -52,7 +52,7 @@ class FeedApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/feeds",
+            url="sample.teleflow.khulnasoft.comm/v1/feeds",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -69,7 +69,7 @@ class FeedApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.com/v1/feeds",
+            url="sample.teleflow.khulnasoft.comm/v1/feeds",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test"},
             params=None,
@@ -84,7 +84,7 @@ class FeedApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.com/v1/feeds/63e969fcb6729e21337e2360",
+            url="sample.teleflow.khulnasoft.comm/v1/feeds/63e969fcb6729e21337e2360",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

@@ -4,9 +4,9 @@ import pkg_resources
 
 from teleflow.api import MessageApi
 from teleflow.api.base import PaginationIterator
-from teleflow.config import TeleflowConfig
 from teleflow.dto.message import MessageDto, PaginatedMessageDto
 from teleflow.enums import Channel
+from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -15,7 +15,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class MessageApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.com", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
         cls.api = MessageApi()
 
         cls.response_json = {
@@ -83,7 +83,7 @@ class MessageApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/messages",
+            url="sample.teleflow.khulnasoft.comm/v1/messages",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"limit": 10, "page": 0},
@@ -102,7 +102,7 @@ class MessageApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/messages",
+            url="sample.teleflow.khulnasoft.comm/v1/messages",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={
@@ -125,7 +125,7 @@ class MessageApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/messages",
+            url="sample.teleflow.khulnasoft.comm/v1/messages",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"limit": 10, "page": 0},
@@ -142,7 +142,7 @@ class MessageApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.com/v1/messages",
+            url="sample.teleflow.khulnasoft.comm/v1/messages",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"limit": 10, "page": 0, "channel": "in_app", "subscriberId": "63dafedbc037e013fd82d37a"},
@@ -159,7 +159,7 @@ class MessageApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.com/v1/messages/63e969fcb6729e21337e2360",
+            url="sample.teleflow.khulnasoft.comm/v1/messages/63e969fcb6729e21337e2360",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

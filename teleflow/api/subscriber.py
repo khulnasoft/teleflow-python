@@ -7,7 +7,6 @@ from typing import Dict, Iterator, List, Optional, Union
 import requests
 
 from teleflow.api.base import Api, PaginationIterator
-from teleflow.constants import SUBSCRIBERS_ENDPOINT
 from teleflow.dto.subscriber import (
     BulkResultSubscriberDto,
     PaginatedSubscriberDto,
@@ -15,6 +14,7 @@ from teleflow.dto.subscriber import (
     SubscriberPreferenceDto,
 )
 from teleflow.enums import Channel, ProviderIdEnum
+from teleflow.khulnasoft.comnstants import SUBSCRIBERS_ENDPOINT
 
 
 class SubscriberApi(Api):

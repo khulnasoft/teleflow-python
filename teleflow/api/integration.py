@@ -7,9 +7,9 @@ from typing import Iterator, Optional
 import requests
 
 from teleflow.api.base import Api
-from teleflow.constants import INTEGRATIONS_ENDPOINT
 from teleflow.dto.integration import IntegrationChannelUsageDto, IntegrationDto
 from teleflow.enums import Channel, ProviderIdEnum
+from teleflow.khulnasoft.comnstants import INTEGRATIONS_ENDPOINT
 
 
 class IntegrationApi(Api):
