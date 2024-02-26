@@ -1,0 +1,83 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_stages: [commit]
+default_language_version:
+  node: "16.16.0"
+  python: "python3.10"
+repos:
+  - repo: https://github.com/MarcoGorelli/absolufy-imports
+    rev: "v0.3.1"
+    hooks:
+      - id: absolufy-imports
+
+  - repo: https://github.com/ambv/black
+    rev: "24.2.0"
+    hooks:
+      - id: black
+        language_version: python3.10
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: ["-m=VERTICAL_HANGING_INDENT", "--combine-as", "--profile=black"]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: "v4.5.0"
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-ast
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: pretty-format-json
+        args:
+          - "--autofix"
+          - "--no-sort-keys"
+          - "--no-ensure-ascii"
+
+  - repo: https://github.com/Lucas-C/pre-commit-hooks-safety
+    rev: "v1.3.3"
+    hooks:
+      - id: python-safety-dependencies-check
+        files: pyproject.toml
+        args: [--disable-audit-and-monitor]
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: "v1.10.0"
+    hooks:
+      - id: python-no-log-warn
+      - id: python-check-mock-methods
+      - id: python-no-eval
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: "1.7.7"
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: "v2.2.6"
+    hooks:
+      - id: codespell
+        args: ["-w"]
+        additional_dependencies: ["tomli"]
+
+
+
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.15.1
+    hooks:
+      - id: pyupgrade
+        args: ["--py38-plus"]
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        args: ["--ignore-missing-imports", "teleflow"]
+        pass_filenames: false
+        additional_dependencies:
+          - types-requests
+          - types-setuptools
