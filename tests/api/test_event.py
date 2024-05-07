@@ -3,10 +3,10 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import EventApi
+from teleflow.config import TeleflowConfig
 from teleflow.dto.event import EventDto, InputEventDto
 from teleflow.dto.topic import TriggerTopicDto
 from teleflow.enums import EventStatus
-from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -17,7 +17,7 @@ class EventApiTests(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.com", "api-key")
         cls.api = EventApi()
 
     @mock.patch("requests.request")
@@ -34,7 +34,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test-template", "to": "sample-recipient", "payload": {}},
             params=None,
@@ -55,7 +55,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test-template", "to": ["sample-recipient-1", "sample-recipient-2"], "payload": {}},
             params=None,
@@ -76,7 +76,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test-template", "to": "sample-recipient", "payload": {}, "overrides": {"an": "override"}},
             params=None,
@@ -97,7 +97,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test-template", "to": "sample-recipient", "payload": {}, "actor": "actor-id"},
             params=None,
@@ -118,7 +118,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test-template", "to": "sample-recipient", "payload": {}, "transactionId": "sample-test"},
             params=None,
@@ -139,7 +139,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test-template", "to": "sample-recipient", "payload": {}, "tenant": "tenant-id"},
             params=None,
@@ -161,7 +161,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"name": "test-template", "to": [{"topicKey": "topic-key", "type": "type"}], "payload": {}},
             params=None,
@@ -184,7 +184,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -210,7 +210,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -237,7 +237,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -264,7 +264,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -291,7 +291,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -329,7 +329,7 @@ class EventApiTests(TestCase):
         self.assertEqual(triggered_event.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/bulk",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/bulk",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "events": [
@@ -371,7 +371,7 @@ class EventApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/bulk",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/bulk",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "events": [
@@ -414,7 +414,7 @@ class EventApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/bulk",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/bulk",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "events": [
@@ -457,7 +457,7 @@ class EventApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/bulk",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/bulk",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "events": [
@@ -502,7 +502,7 @@ class EventApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/bulk",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/bulk",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "events": [
@@ -545,7 +545,7 @@ class EventApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/bulk",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/bulk",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "events": [
@@ -571,7 +571,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/broadcast",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/broadcast",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -596,7 +596,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/broadcast",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/broadcast",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -621,7 +621,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/broadcast",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/broadcast",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -646,7 +646,7 @@ class EventApiTests(TestCase):
         self.assertEqual(result.transaction_id, "sample-test")
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/broadcast",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/broadcast",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "test-template",
@@ -665,7 +665,7 @@ class EventApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.khulnasoft.comm/v1/events/trigger/sample-test",
+            url="sample.teleflow.khulnasoft.com/v1/events/trigger/sample-test",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

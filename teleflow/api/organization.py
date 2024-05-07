@@ -7,9 +7,9 @@ from typing import Iterator, Optional
 import requests
 
 from teleflow.api.base import Api
+from teleflow.constants import ORGANIZATION_ENDPOINT
 from teleflow.dto.member import MemberDto
 from teleflow.dto.organization import OrganizationBrandingDto, OrganizationDto
-from teleflow.khulnasoft.comnstants import ORGANIZATION_ENDPOINT
 
 
 class OrganizationApi(Api):

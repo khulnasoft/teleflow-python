@@ -4,8 +4,8 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import ChangeApi
+from teleflow.config import TeleflowConfig
 from teleflow.dto.change import ChangeDetailDto, ChangeDto, PaginatedChangeDto
-from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -14,7 +14,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class ChangeApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.com", "api-key")
         cls.api = ChangeApi()
         cls.change_response_sample = {
             "data": [
@@ -123,7 +123,7 @@ class ChangeApiTests(TestCase):
                         "_id": "63dafed4117f8c850991ec4a",
                         "firstName": "john",
                         "lastName": "doe",
-                        "email": "john.doe@teleflow.khulnasoft.comm",
+                        "email": "john.doe@teleflow.khulnasoft.com",
                         "profilePicture": "",
                         "showOnBoarding": False,
                         "tokens": [
@@ -251,7 +251,7 @@ class ChangeApiTests(TestCase):
                         "_id": "63dafed4117f8c850991ec4a",
                         "firstName": "john",
                         "lastName": "doe",
-                        "email": "john.doe@teleflow.khulnasoft.comm",
+                        "email": "john.doe@teleflow.khulnasoft.com",
                         "profilePicture": "",
                         "showOnBoarding": False,
                         "tokens": [
@@ -307,7 +307,7 @@ class ChangeApiTests(TestCase):
                         "_id": "63dafed4117f8c850991ec4a",
                         "firstName": "john",
                         "lastName": "doe",
-                        "email": "john.doe@teleflow.khulnasoft.comm",
+                        "email": "john.doe@teleflow.khulnasoft.com",
                         "profilePicture": "",
                         "showOnBoarding": False,
                         "tokens": [
@@ -353,7 +353,7 @@ class ChangeApiTests(TestCase):
                         "_id": "63dafed4117f8c850991ec4a",
                         "firstName": "john",
                         "lastName": "doe",
-                        "email": "john.doe@teleflow.khulnasoft.comm",
+                        "email": "john.doe@teleflow.khulnasoft.com",
                         "profilePicture": "",
                         "showOnBoarding": False,
                         "tokens": [
@@ -595,7 +595,7 @@ class ChangeApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/changes",
+            url="sample.teleflow.khulnasoft.com/v1/changes",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"promoted": "false"},
@@ -612,7 +612,7 @@ class ChangeApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/changes",
+            url="sample.teleflow.khulnasoft.com/v1/changes",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 1, "limit": 10, "promoted": "false"},
@@ -628,7 +628,7 @@ class ChangeApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/changes/count",
+            url="sample.teleflow.khulnasoft.com/v1/changes/count",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -645,7 +645,7 @@ class ChangeApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/changes/63e59af2105a61b054458218/apply",
+            url="sample.teleflow.khulnasoft.com/v1/changes/63e59af2105a61b054458218/apply",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -786,7 +786,7 @@ class ChangeApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/changes/bulk/apply",
+            url="sample.teleflow.khulnasoft.com/v1/changes/bulk/apply",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"changeIds": ["63e59af2105a61b054458218", "63e003995fd0df473199a46c"]},
             params=None,

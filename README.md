@@ -1,6 +1,6 @@
 # Python Teleflow SDK
 
-[![PyPI](https://img.shields.io/pypi/v/teleflow.khulnasoft.comlor=blue)](https://pypi.org/project/teleflow/)
+[![PyPI](https://img.shields.io/pypi/v/teleflow?color=blue)](https://pypi.org/project/teleflow/)
 ![Tests Status](https://github.com/khulnasoft/teleflow-python/actions/workflows/.github/workflows/tests.yml/badge.svg)
 [![codecov](https://codecov.io/gh/khulnasoft/teleflow-python/branch/main/graph/badge.svg?token=RON7F8QTZX)](https://codecov.io/gh/khulnasoft/teleflow-python)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
@@ -45,8 +45,8 @@ This package is a wrapper of all the resources offered by Teleflow, we will just
 
 To do this, you will need to:
 
-1. Create your first notification workflow and keep in mind the identifier to trigger the workflow: https://docs-teleflow.khulnasoft.com/overview/quickstart/general-quickstart#create-a-workflow
-2. Retrieve your API key from the Teleflow dashboard directly in the settings section: https://web.teleflow.khulnasoft.com/settings
+1. Create your first notification workflow and keep in mind the identifier to trigger the workflow: https://docs.teleflow.co/overview/quickstart/general-quickstart#create-a-workflow
+2. Retrieve your API key from the Teleflow dashboard directly in the settings section: https://web.teleflow.co/settings
 3. Write code to trigger your first event:
 
 ```python
@@ -74,7 +74,7 @@ from teleflow.api import EventApi
 url = "https://api-teleflow.khulnasoft.com"
 api_key = "<TELEFLOW_API_KEY>"
 
-# You can sign up on https://web.teleflow.khulnasoft.com to get your API key from https://web.teleflow.khulnasoft.com/settings
+# You can sign up on https://web.teleflow.co to get your API key from https://web.teleflow.co/settings
 ```
 
 **Trigger an event** - Send notification to subscribers:
@@ -297,8 +297,8 @@ Feature requests, bug reports and pull requests are welcome. Please create an [i
 
 ## Support and Feedback
 
-Be sure to visit the Teleflow official [documentation website](https://docs-teleflow.khulnasoft.com/docs) for additional information about our SDK.
-If you need additional assistance, join our Discord server [here](https://discord.teleflow.khulnasoft.com).
+Be sure to visit the Teleflow official [documentation website](https://docs.teleflow.co/docs) for additional information about our SDK.
+If you need additional assistance, join our Discord server [here](https://discord.teleflow.co).
 
 ## License
 

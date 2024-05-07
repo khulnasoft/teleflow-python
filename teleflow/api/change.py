@@ -7,8 +7,8 @@ from typing import Dict, Generator, List, Optional, Union
 import requests
 
 from teleflow.api.base import Api
+from teleflow.constants import CHANGES_ENDPOINT
 from teleflow.dto.change import ChangeDto, PaginatedChangeDto
-from teleflow.khulnasoft.comnstants import CHANGES_ENDPOINT
 
 
 class ChangeApi(Api):

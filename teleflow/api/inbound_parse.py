@@ -7,7 +7,7 @@ from typing import Optional
 import requests
 
 from teleflow.api.base import Api
-from teleflow.khulnasoft.comnstants import INBOUND_PARSE_ENDPOINT
+from teleflow.constants import INBOUND_PARSE_ENDPOINT
 
 
 class InboundParseApi(Api):

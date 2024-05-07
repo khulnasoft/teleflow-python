@@ -5,8 +5,8 @@ import pkg_resources
 
 from teleflow.api import TenantApi
 from teleflow.api.base import PaginationIterator
+from teleflow.config import TeleflowConfig
 from teleflow.dto.tenant import PaginatedTenantDto, TenantDto
-from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -34,7 +34,7 @@ class TenantApiTests(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.com", "api-key")
         cls.api = TenantApi()
 
     @mock.patch("requests.request")
@@ -47,7 +47,7 @@ class TenantApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/tenants",
+            url="sample.teleflow.khulnasoft.com/v1/tenants",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={},
@@ -64,7 +64,7 @@ class TenantApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/tenants",
+            url="sample.teleflow.khulnasoft.com/v1/tenants",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 1, "limit": 10},
@@ -81,7 +81,7 @@ class TenantApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/tenants",
+            url="sample.teleflow.khulnasoft.com/v1/tenants",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 0, "limit": 10},
@@ -103,7 +103,7 @@ class TenantApiTests(TestCase):
 
         mock_request.assert_any_call(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/tenants",
+            url="sample.teleflow.khulnasoft.com/v1/tenants",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 1, "limit": 10},
@@ -123,7 +123,7 @@ class TenantApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/tenants",
+            url="sample.teleflow.khulnasoft.com/v1/tenants",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"identifier": "my-tenant", "name": "My Tenant", "data": {}},
             params=None,
@@ -142,7 +142,7 @@ class TenantApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/tenants/my-tenant",
+            url="sample.teleflow.khulnasoft.com/v1/tenants/my-tenant",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -163,7 +163,7 @@ class TenantApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PATCH",
-            url="sample.teleflow.khulnasoft.comm/v1/tenants/my-tenant",
+            url="sample.teleflow.khulnasoft.com/v1/tenants/my-tenant",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={"identifier": "new-tenant-ref"},
             params=None,
@@ -178,7 +178,7 @@ class TenantApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.khulnasoft.comm/v1/tenants/my-tenant",
+            url="sample.teleflow.khulnasoft.com/v1/tenants/my-tenant",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

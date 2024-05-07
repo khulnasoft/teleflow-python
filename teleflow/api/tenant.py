@@ -7,8 +7,8 @@ from typing import Dict, Optional, Union
 import requests
 
 from teleflow.api.base import Api, PaginationIterator
+from teleflow.constants import TENANTS_ENDPOINT
 from teleflow.dto.tenant import PaginatedTenantDto, TenantDto
-from teleflow.khulnasoft.comnstants import TENANTS_ENDPOINT
 
 
 class TenantApi(Api):

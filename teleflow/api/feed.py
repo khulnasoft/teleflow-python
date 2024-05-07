@@ -7,8 +7,8 @@ from typing import Iterator, Optional
 import requests
 
 from teleflow.api.base import Api
+from teleflow.constants import FEEDS_ENDPOINT
 from teleflow.dto.feed import FeedDto
-from teleflow.khulnasoft.comnstants import FEEDS_ENDPOINT
 
 
 class FeedApi(Api):

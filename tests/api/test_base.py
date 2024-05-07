@@ -4,7 +4,7 @@ import pkg_resources
 from requests.exceptions import HTTPError
 
 from teleflow.api.base import Api
-from teleflow.khulnasoft.comnfig import TeleflowConfig
+from teleflow.config import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -13,7 +13,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class ApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.com", "api-key")
         cls.api = Api()
 
     @mock.patch("requests.request")
@@ -25,7 +25,7 @@ class ApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm",
+            url="sample.teleflow.khulnasoft.com",
             headers={
                 "Authorization": "ApiKey api-key",
                 "User-Agent": f"teleflow/python@{__version__}",
@@ -46,7 +46,7 @@ class ApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm",
+            url="sample.teleflow.khulnasoft.com",
             headers={
                 "Authorization": "ApiKey api-key",
                 "User-Agent": f"teleflow/python@{__version__}",
@@ -67,7 +67,7 @@ class ApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm",
+            url="sample.teleflow.khulnasoft.com",
             headers={
                 "Authorization": "ApiKey api-key",
                 "User-Agent": f"teleflow/python@{__version__}",
@@ -88,7 +88,7 @@ class ApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm",
+            url="sample.teleflow.khulnasoft.com",
             headers={
                 "Authorization": "ApiKey api-key",
                 "User-Agent": f"teleflow/python@{__version__}",
@@ -111,7 +111,7 @@ class ApiTests(TestCase):
         mock_request.assert_not_called()
         session_mock.request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm",
+            url="sample.teleflow.khulnasoft.com",
             headers={
                 "Authorization": "ApiKey api-key",
                 "User-Agent": f"teleflow/python@{__version__}",

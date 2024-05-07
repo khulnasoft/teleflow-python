@@ -2,7 +2,7 @@
 description = "This project aims to provide a wrapper for the Teleflow API."
 keywords = ["teleflow", "python", "sdk", "api", "wrapper"]
 name = "teleflow"
-version = "1.13.0"
+version = "1.14.0"
 
 documentation = "https://teleflow-python.readthedocs.io/en/latest"
 homepage = "https://teleflow-python.readthedocs.io/en/latest"

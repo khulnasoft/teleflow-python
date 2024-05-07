@@ -8,12 +8,12 @@ from typing import Optional
 import requests
 
 from teleflow.api.base import Api, PaginationIterator
+from teleflow.constants import NOTIFICATION_TEMPLATES_ENDPOINT
 from teleflow.dto.notification_template import (
     NotificationTemplateDto,
     NotificationTemplateFormDto,
     PaginatedNotificationTemplateDto,
 )
-from teleflow.khulnasoft.comnstants import NOTIFICATION_TEMPLATES_ENDPOINT
 
 
 class NotificationTemplateApi(Api):

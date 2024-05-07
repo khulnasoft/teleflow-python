@@ -8,9 +8,9 @@ from typing import Dict, Iterable as _Iterable, List, Optional, Union
 import requests
 
 from teleflow.api.base import Api
+from teleflow.constants import EVENTS_ENDPOINT
 from teleflow.dto.event import EventDto, InputEventDto
 from teleflow.dto.topic import TriggerTopicDto
-from teleflow.khulnasoft.comnstants import EVENTS_ENDPOINT
 
 
 class EventApi(Api):

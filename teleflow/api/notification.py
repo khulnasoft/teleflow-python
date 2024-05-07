@@ -7,12 +7,12 @@ from typing import Iterator, List, Optional, Tuple
 import requests
 
 from teleflow.api.base import Api, PaginationIterator
+from teleflow.constants import NOTIFICATION_ENDPOINT
 from teleflow.dto.notification import (
     ActivityGraphStatesDto,
     ActivityNotificationDto,
     PaginatedActivityNotificationDto,
 )
-from teleflow.khulnasoft.comnstants import NOTIFICATION_ENDPOINT
 
 
 class NotificationApi(Api):

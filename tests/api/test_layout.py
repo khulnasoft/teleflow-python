@@ -3,8 +3,8 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import LayoutApi
+from teleflow.config import TeleflowConfig
 from teleflow.dto import LayoutDto, LayoutVariableDto, PaginatedLayoutDto
-from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -13,7 +13,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class LayoutApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.com", "api-key")
         cls.api = LayoutApi()
         cls.layout_json = {
             "_id": "63dafeda7779f59258e38450",
@@ -126,7 +126,7 @@ class LayoutApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/layouts",
+            url="sample.teleflow.khulnasoft.com/v1/layouts",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 0, "pageSize": 100},
@@ -143,7 +143,7 @@ class LayoutApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/layouts",
+            url="sample.teleflow.khulnasoft.com/v1/layouts",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"page": 1, "pageSize": 20},
@@ -160,7 +160,7 @@ class LayoutApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/layouts",
+            url="sample.teleflow.khulnasoft.com/v1/layouts",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "Default Layout",
@@ -219,7 +219,7 @@ class LayoutApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/layouts/63dafeda7779f59258e38450",
+            url="sample.teleflow.khulnasoft.com/v1/layouts/63dafeda7779f59258e38450",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -236,7 +236,7 @@ class LayoutApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PATCH",
-            url="sample.teleflow.khulnasoft.comm/v1/layouts/63dafeda7779f59258e38450",
+            url="sample.teleflow.khulnasoft.com/v1/layouts/63dafeda7779f59258e38450",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "name": "Default Layout",
@@ -294,7 +294,7 @@ class LayoutApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.khulnasoft.comm/v1/layouts/63dafeda7779f59258e38450",
+            url="sample.teleflow.khulnasoft.com/v1/layouts/63dafeda7779f59258e38450",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -310,7 +310,7 @@ class LayoutApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/layouts/63dafeda7779f59258e38450/default",
+            url="sample.teleflow.khulnasoft.com/v1/layouts/63dafeda7779f59258e38450/default",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

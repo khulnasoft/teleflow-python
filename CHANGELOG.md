@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/khulnasoft/teleflow-python/compare/v1.13.0...v1.14.0) (2024-02-26)
+
+
+### Features
+
+* **subscriber:** [#221](https://github.com/khulnasoft/teleflow-python/issues/221) - mark-as, mark-all-as and mark-message-action ([eda325a](https://github.com/khulnasoft/teleflow-python/commit/eda325af35879af724783801dac607aadeb2b1ed))
+
 # [1.13.0](https://github.com/khulnasoft/teleflow-python/compare/v1.12.0...v1.13.0) (2024-02-26)
 
 
@@ -232,7 +239,7 @@
 
 ### Features
 
-* migration from SpikeeLabs to khulnasoft org ([10d3ead](https://github.com/khulnasoft/teleflow-python/commit/10d3ead5f8914b9965461276a27083d6294f10a1))
+* migration from SpikeeLabs to TeleflowHQ org ([10d3ead](https://github.com/khulnasoft/teleflow-python/commit/10d3ead5f8914b9965461276a27083d6294f10a1))
 
 ## [1.1.1-alpha.1](https://github.com/khulnasoft/teleflow-python/compare/v1.1.0...v1.1.1-alpha.1) (2023-04-13)
 

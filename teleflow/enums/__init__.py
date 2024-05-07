@@ -10,6 +10,7 @@ from teleflow.enums.field import (
     FieldFilterPartTimeOperator,
 )
 from teleflow.enums.member import MemberRole, MemberStatus
+from teleflow.enums.message import MarkAsEnum, MessageActionStatus
 from teleflow.enums.notification import (
     NotificationStepMetadataType,
     NotificationStepMetadataUnit,
@@ -41,8 +42,10 @@ __all__ = [
     "FieldFilterPartOperator",
     "FieldFilterPartTimeOperator",
     "InAppProviderIdEnum",
+    "MarkAsEnum",
     "MemberRole",
     "MemberStatus",
+    "MessageActionStatus",
     "NotificationStepMetadataType",
     "NotificationStepMetadataUnit",
     "OrganizationBrandingDirection",

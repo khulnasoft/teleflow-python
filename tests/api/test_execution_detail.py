@@ -4,8 +4,8 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import ExecutionDetailApi
+from teleflow.config import TeleflowConfig
 from teleflow.dto import ExecutionDetailDto
-from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -14,7 +14,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class ExecutionDetailApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.com", "api-key")
         cls.api = ExecutionDetailApi()
 
         cls.response_json = {
@@ -69,7 +69,7 @@ class ExecutionDetailApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/execution-details",
+            url="sample.teleflow.khulnasoft.com/v1/execution-details",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params={"notificationId": "63eaba6ed1a5554c97dca098", "subscriberId": "63dafedbc037e013fd82d37a"},

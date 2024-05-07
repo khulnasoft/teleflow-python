@@ -3,8 +3,8 @@ from unittest import TestCase, mock
 import pkg_resources
 
 from teleflow.api import BlueprintApi
+from teleflow.config import TeleflowConfig
 from teleflow.dto import BlueprintDto, GroupedBlueprintDto
-from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -59,7 +59,7 @@ class BlueprintApiTests(TestCase):
 
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.com", "api-key")
         cls.api = BlueprintApi()
 
     @mock.patch("requests.request")
@@ -72,7 +72,7 @@ class BlueprintApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/blueprints/63dafeda7779f59258e38450",
+            url="sample.teleflow.khulnasoft.com/v1/blueprints/63dafeda7779f59258e38450",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -89,7 +89,7 @@ class BlueprintApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/blueprints/group-by-category",
+            url="sample.teleflow.khulnasoft.com/v1/blueprints/group-by-category",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,

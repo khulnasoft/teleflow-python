@@ -5,9 +5,9 @@ import pkg_resources
 from requests.exceptions import HTTPError
 
 from teleflow.api import IntegrationApi
+from teleflow.config import TeleflowConfig
 from teleflow.dto.integration import IntegrationChannelUsageDto, IntegrationDto
 from teleflow.enums import Channel, ChatProviderIdEnum, EmailProviderIdEnum
-from teleflow.khulnasoft.comnfig import TeleflowConfig
 from tests.factories import MockResponse
 
 __version__ = pkg_resources.get_distribution("teleflow").version
@@ -16,7 +16,7 @@ __version__ = pkg_resources.get_distribution("teleflow").version
 class IntegrationApiTests(TestCase):
     @classmethod
     def setUpClass(cls) -> None:
-        TeleflowConfig.configure("sample.teleflow.khulnasoft.comm", "api-key")
+        TeleflowConfig.configure("sample.teleflow.khulnasoft.com", "api-key")
         cls.api = IntegrationApi()
         cls.integration_json = {
             "_id": "63dfe50ecac5cff328ca5d24",
@@ -73,7 +73,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations",
+            url="sample.teleflow.khulnasoft.com/v1/integrations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -90,7 +90,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations",
+            url="sample.teleflow.khulnasoft.com/v1/integrations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -107,7 +107,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/active",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/active",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -124,7 +124,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/active",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/active",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -154,7 +154,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations",
+            url="sample.teleflow.khulnasoft.com/v1/integrations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "providerId": EmailProviderIdEnum.CUSTOM_SMTP,
@@ -198,7 +198,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations",
+            url="sample.teleflow.khulnasoft.com/v1/integrations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "providerId": EmailProviderIdEnum.CUSTOM_SMTP,
@@ -267,7 +267,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations",
+            url="sample.teleflow.khulnasoft.com/v1/integrations",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "providerId": ChatProviderIdEnum.MS_TEAMS,
@@ -289,7 +289,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/webhooks/provider/something/status",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/webhooks/provider/something/status",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -320,7 +320,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PUT",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/identifier",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/identifier",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "providerId": EmailProviderIdEnum.CUSTOM_SMTP,
@@ -365,7 +365,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="PUT",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/identifier",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/identifier",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json={
                 "providerId": EmailProviderIdEnum.CUSTOM_SMTP,
@@ -393,7 +393,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="DELETE",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/identifier",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/identifier",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -411,7 +411,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="GET",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/email/limit",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/email/limit",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -426,7 +426,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/63dfe50ecac5cff328ca5d24/set-primary",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/63dfe50ecac5cff328ca5d24/set-primary",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
@@ -442,7 +442,7 @@ class IntegrationApiTests(TestCase):
 
         mock_request.assert_called_once_with(
             method="POST",
-            url="sample.teleflow.khulnasoft.comm/v1/integrations/63dfe50ecac5cff328ca5d23/set-primary",
+            url="sample.teleflow.khulnasoft.com/v1/integrations/63dfe50ecac5cff328ca5d23/set-primary",
             headers={"Authorization": "ApiKey api-key", "User-Agent": f"teleflow/python@{__version__}"},
             json=None,
             params=None,
