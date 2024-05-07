@@ -75,7 +75,7 @@ exclude = '''
 )
 '''
 include = '\.pyi?$'
-line-length = 120
+line-length = 123
 
 [tool.mypy]
 modules = "teleflow"
@@ -84,11 +84,11 @@ python_version = "3.8"
 [tool.pylama]
 format = "pycodestyle"
 linters = "pycodestyle,pyflakes,pylint"
-max_line_length = 120
+max_line_length = 123
 skip = ".pytest_cache,.venv/*,tests/*,*/tests/*,docs/*"
 
 [tool.pylama.linter.pycodestyle]
-max_line_length = 120
+max_line_length = 123
 
 [tool.pylama.linter.pylint]
 disable = "W0212,W0511,R0913"
